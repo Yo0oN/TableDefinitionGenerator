@@ -1,0 +1,51 @@
+package tableDefinition.service;
+
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.Workbook;
+
+import tableDefinition.dao.MakeTableDefinitionDAO;
+import tableDefinition.dao.TableDefinition;
+import util.ExcelUtil;
+
+public class TableDefinitionService {
+
+    MakeTableDefinitionDAO makeTableDefinitionDAO = new MakeTableDefinitionDAO();
+    ExcelUtil excelUtil = new ExcelUtil();
+    
+	/**
+	 * 테이블 정의서 생성
+	 */
+	public boolean tableDefinitionGenerator () {
+		List<TableDefinition> tableListResult = getTableList(); // 테이블 목록 가져오기
+		
+		if (tableListResult == null || tableListResult.size() == 0 || tableInfoResult == null || tableInfoResult.size() == 0) {
+			return false;
+		}
+		Workbook workbook = null;
+		workbook = excelUtil.makeTableList(tableListResult, workbook);
+		
+		String tableName = tableListResult.get(0).getTABLE_NAME();
+		List<TableDefinition> tableInfoResult = getTableListInfo();
+		
+		return excelUtil.excelGenerator(workbook);
+	}
+	
+    /**
+     * 테이블 목록 가져오기
+     * @return boolean
+     */
+	public List<TableDefinition> getTableList() {
+		List<TableDefinition> tableListResult = makeTableDefinitionDAO.getTableList();
+		return tableListResult; 
+	}
+	
+    /**
+     * 테이블 정보 가져오기
+     * @return boolean
+     */
+	public List<TableDefinition> getTableListInfo() {
+		List<TableDefinition> tableInfoResult = makeTableDefinitionDAO.getTableInfo();
+		return tableInfoResult; 
+	}
+}

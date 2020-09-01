@@ -1,0 +1,25 @@
+	
+<?xml version="1.0" encoding="UTF-8"?>	
+<configuration status="WARN">	
+  <appenders>	
+    <!-- 콘솔 로그 설정 -->	
+    <Console name="console" target="SYSTEM_OUT">	
+      <PatternLayout pattern="%d [%t] %-5p %c - %m%n" />	
+    </Console>	
+    <!-- 파일 로그 설정 -->	
+    <RollingFile name="file" fileName="d:\logs\all.log" filePattern="./logs/all.%i.%d{yyyy-MM-dd}.log">	
+      <PatternLayout pattern="%d [%t] %-5p %c - %m%n" />	
+      <Policies>	
+        <SizeBasedTriggeringPolicy size="10MB" />	
+      </Policies>	
+      <DefaultRolloverStrategy max="1000" fileIndex="min" />	
+    </RollingFile>	
+  </appenders>	
+  <!-- 로그 레벨 설정 -->	
+  <loggers>	
+    <root level="ALL">	
+      <appender-ref ref="console" />	
+      <appender-ref ref="file" />	
+    </root>	
+  </loggers>	
+</configuration>

@@ -1,0 +1,68 @@
+package tableDefinition.service;
+
+import java.util.Date;
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import tableDefinition.dao.MakeTableDefinitionDAO;
+import tableDefinition.dao.TableDefinition;
+import util.ExcelUtil;
+
+public class TableDefinitionService {
+	private static final Logger logger = LogManager.getLogger(TableDefinition.class);
+
+    MakeTableDefinitionDAO makeTableDefinitionDAO = new MakeTableDefinitionDAO();
+    ExcelUtil excelUtil = new ExcelUtil();
+    long startTime;
+    long endTime;
+    
+	/**
+	 * 테이블 정의서 생성
+	 */
+	@SuppressWarnings("resource")
+	public boolean tableDefinitionGenerator () {
+		List<TableDefinition> tableListResult = getTableList();
+		
+		if (tableListResult == null || tableListResult.size() == 0) {
+			return false;
+		}
+		Workbook workbook = new XSSFWorkbook();
+		workbook = excelUtil.makeTableList(tableListResult, workbook);
+		
+		for (int i = 0; i < tableListResult.size(); i++) {
+			List<TableDefinition> tableInfoResult = getTableListInfo(tableListResult.get(i));
+			excelUtil.makeTableInfoTab(tableInfoResult, workbook);
+		}
+		return excelUtil.excelGenerator(workbook);
+	}
+	
+    /**
+     * 테이블 목록 가져오기
+     * @return boolean
+     */
+	public List<TableDefinition> getTableList() {
+		startTime = new Date().getTime();
+		List<TableDefinition> tableListResult = makeTableDefinitionDAO.getTableList();
+		endTime = new Date().getTime();
+		
+		logger.info("getTableList() : " + (endTime - startTime) + "밀리초");
+		return tableListResult; 
+	}
+	
+    /**
+     * 테이블 상세정보 가져오기
+     * @return boolean
+     */
+	public List<TableDefinition> getTableListInfo(TableDefinition tableName) {
+		startTime = new Date().getTime();
+		List<TableDefinition> tableInfoResult = makeTableDefinitionDAO.getTableInfo(tableName);
+		endTime = new Date().getTime();
+
+		logger.info("getTableListInfo() : " + (endTime - startTime) + "밀리초");
+		return tableInfoResult; 
+	}
+}

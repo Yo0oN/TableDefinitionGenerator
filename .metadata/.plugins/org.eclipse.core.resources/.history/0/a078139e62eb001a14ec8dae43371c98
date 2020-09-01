@@ -1,0 +1,52 @@
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %5p [%c] %m%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="java.sql" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="egovframework" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="org.springframework" level="DEBUG" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="jdbc.resultsettable" additivity="false"> 
+            <level value="info" /> 
+            <appender-ref ref="console-log4jdbc" />
+        </Logger>
+    </Loggers>
+</Configuration>

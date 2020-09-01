@@ -1,0 +1,250 @@
+[2020/09/01 10:47:20,526] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getType() returned 1003
+[2020/09/01 10:47:20,533] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,534] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,534] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_MRT_BATCH_LOG
+[2020/09/01 10:47:20,534] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned DT_START
+[2020/09/01 10:47:20,534] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned CHAR
+[2020/09/01 10:47:20,534] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 14
+[2020/09/01 10:47:20,534] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 1
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 배치시작일시
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_MRT_BATCH_LOG
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned DT_END
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned CHAR
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 14
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 2
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 배치종료일시
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_MRT_BATCH_LOG
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned ID_BATCH
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned VARCHAR2
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 20
+[2020/09/01 10:47:20,535] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 3
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 배치번호
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_MRT_BATCH_LOG
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned DT_BATCH_START
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned CHAR
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 14
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 4
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 배치시작일시
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_MRT_BATCH_LOG
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned DT_BATCH_END
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned CHAR
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 14
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,536] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 5
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 배치종료일시
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_MRT_BATCH_LOG
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned FG_SUCCESS
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned CHAR
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 1
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 6
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 완료여부
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,537] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_MRT_BATCH_LOG
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned TP_DATE
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned VARCHAR2
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 10
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 7
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 기간유형
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.
+|-----------------|---------------|----------|------------|---------|----------|---------|----------------|
+|table_name       |column_name    |data_type |data_length |nullable |column_id |comments |constraint_type |
+|-----------------|---------------|----------|------------|---------|----------|---------|----------------|
+|TB_MRT_BATCH_LOG |DT_START       |CHAR      |14          |null     |1         |배치시작일시   |                |
+|TB_MRT_BATCH_LOG |DT_END         |CHAR      |14          |null     |2         |배치종료일시   |                |
+|TB_MRT_BATCH_LOG |ID_BATCH       |VARCHAR2  |20          |null     |3         |배치번호     |                |
+|TB_MRT_BATCH_LOG |DT_BATCH_START |CHAR      |14          |null     |4         |배치시작일시   |                |
+|TB_MRT_BATCH_LOG |DT_BATCH_END   |CHAR      |14          |null     |5         |배치종료일시   |                |
+|TB_MRT_BATCH_LOG |FG_SUCCESS     |CHAR      |1           |null     |6         |완료여부     |                |
+|TB_MRT_BATCH_LOG |TP_DATE        |VARCHAR2  |10          |null     |7         |기간유형     |                |
+|-----------------|---------------|----------|------------|---------|----------|---------|----------------|
+
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned false
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.close() returned void
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.getConnection() returned net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@21b2e768
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. Connection.getMetaData() returned oracle.jdbc.driver.OracleDatabaseMetaData@771a660
+[2020/09/01 10:47:20,538] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.close() returned 
+[2020/09/01 10:47:20,541] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.new PreparedStatement returned 
+[2020/09/01 10:47:20,541] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. Connection.prepareStatement(SELECT
+			  E.TABLE_NAME
+			, E.COLUMN_NAME
+			, E.DATA_TYPE
+			, E.DATA_LENGTH
+			, DECODE(E.NULLABLE, 'N', 'NOT NULL', '') NULLABLE
+			, E.COLUMN_ID
+			, E.COMMENTS
+			, NVL(F.CONSTRAINT_TYPE, ' ') CONSTRAINT_TYPE
+		FROM (select
+				  A.TABLE_NAME
+				, A.COLUMN_NAME
+				, A.DATA_TYPE
+				, A.DATA_LENGTH
+				, A.NULLABLE
+				, A.COLUMN_ID
+				, B.COMMENTS
+			from COLS A
+				inner join USER_COL_COMMENTS B
+				on A.TABLE_NAME= B.TABLE_NAME and A.COLUMN_NAME = B.COLUMN_NAME
+			order by A.TABLE_NAME, A.COLUMN_ID) E
+		LEFT OUTER JOIN (
+			SELECT
+				  C.TABLE_NAME
+				, D.COLUMN_NAME
+				, C.CONSTRAINT_NAME
+				, C.CONSTRAINT_TYPE
+			FROM USER_CONSTRAINTS C
+				INNER JOIN USER_CONS_COLUMNS D
+				ON C.TABLE_NAME = D.TABLE_NAME AND C.CONSTRAINT_NAME = D.CONSTRAINT_NAME) F
+		ON E.TABLE_NAME = F.TABLE_NAME AND E.COLUMN_NAME = F.COLUMN_NAME
+		WHERE E.TABLE_NAME = ?
+		ORDER BY E.TABLE_NAME, E.COLUMN_ID) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@72bca894
+[2020/09/01 10:47:20,542] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.setString(1, "TB_SIM_DOC_INS_HIS") returned 
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. SELECT E.TABLE_NAME , E.COLUMN_NAME , E.DATA_TYPE , E.DATA_LENGTH , DECODE(E.NULLABLE, 'N', 
+'NOT NULL', '') NULLABLE , E.COLUMN_ID , E.COMMENTS , NVL(F.CONSTRAINT_TYPE, ' ') CONSTRAINT_TYPE 
+FROM (select A.TABLE_NAME , A.COLUMN_NAME , A.DATA_TYPE , A.DATA_LENGTH , A.NULLABLE , A.COLUMN_ID 
+, B.COMMENTS from COLS A inner join USER_COL_COMMENTS B on A.TABLE_NAME= B.TABLE_NAME and A.COLUMN_NAME 
+= B.COLUMN_NAME order by A.TABLE_NAME, A.COLUMN_ID) E LEFT OUTER JOIN ( SELECT C.TABLE_NAME 
+, D.COLUMN_NAME , C.CONSTRAINT_NAME , C.CONSTRAINT_TYPE FROM USER_CONSTRAINTS C INNER JOIN 
+USER_CONS_COLUMNS D ON C.TABLE_NAME = D.TABLE_NAME AND C.CONSTRAINT_NAME = D.CONSTRAINT_NAME) 
+F ON E.TABLE_NAME = F.TABLE_NAME AND E.COLUMN_NAME = F.COLUMN_NAME WHERE E.TABLE_NAME = 'TB_SIM_DOC_INS_HIS' 
+ORDER BY E.TABLE_NAME, E.COLUMN_ID  {executed in 20 ms}
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.execute() returned true
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.new ResultSet returned 
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@433ffad1
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getMetaData() returned oracle.jdbc.driver.OracleResultSetMetaData@1fc793c2
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getType() returned 1003
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned ID_SIM_DOC_SINGLE
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned VARCHAR2
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 60
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned NOT NULL
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 1
+[2020/09/01 10:47:20,562] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 싱글유사도문서번호
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned P
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned ID_SIM_DOC_SINGLE
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned VARCHAR2
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 60
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned NOT NULL
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 1
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 싱글유사도문서번호
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned C
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned CD_TAXONOMY
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned VARCHAR2
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 200
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 2
+[2020/09/01 10:47:20,563] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 분류코드
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned TP_STATE
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned VARCHAR2
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 20
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 3
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 배치상태
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned CNT_FILE
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned NUMBER
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 22
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 4
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 파일수
+[2020/09/01 10:47:20,564] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned CNT_SUCCESS
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned NUMBER
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 22
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 5
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 성공횟수
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned CNT_ERROR
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned NUMBER
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 22
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 6
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 봇에러건수
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,565] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned DT_REG_FST
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned DATE
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 7
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 7
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 등록일
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned true
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(TABLE_NAME) returned TB_SIM_DOC_INS_HIS
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_NAME) returned DT_UPT_LAST
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_TYPE) returned DATE
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(DATA_LENGTH) returned 7
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(NULLABLE) returned void
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COLUMN_ID) returned 8
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(COMMENTS) returned 수정일시
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.getString(CONSTRAINT_TYPE) returned  
+[2020/09/01 10:47:20,566] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.isClosed() returned false
+[2020/09/01 10:47:20,567] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.
+|-------------------|------------------|----------|------------|---------|----------|----------|----------------|
+|table_name         |column_name       |data_type |data_length |nullable |column_id |comments  |constraint_type |
+|-------------------|------------------|----------|------------|---------|----------|----------|----------------|
+|TB_SIM_DOC_INS_HIS |ID_SIM_DOC_SINGLE |VARCHAR2  |60          |NOT NULL |1         |싱글유사도문서번호 |P               |
+|TB_SIM_DOC_INS_HIS |ID_SIM_DOC_SINGLE |VARCHAR2  |60          |NOT NULL |1         |싱글유사도문서번호 |C               |
+|TB_SIM_DOC_INS_HIS |CD_TAXONOMY       |VARCHAR2  |200         |null     |2         |분류코드      |                |
+|TB_SIM_DOC_INS_HIS |TP_STATE          |VARCHAR2  |20          |null     |3         |배치상태      |                |
+|TB_SIM_DOC_INS_HIS |CNT_FILE          |NUMBER    |22          |null     |4         |파일수       |                |
+|TB_SIM_DOC_INS_HIS |CNT_SUCCESS       |NUMBER    |22          |null     |5         |성공횟수      |                |
+|TB_SIM_DOC_INS_HIS |CNT_ERROR         |NUMBER    |22          |null     |6         |봇에러건수     |                |
+|TB_SIM_DOC_INS_HIS |DT_REG_FST        |DATE      |7           |null     |7         |등록일       |                |
+|TB_SIM_DOC_INS_HIS |DT_UPT_LAST       |DATE      |7           |null     |8         |수정일시      |                |
+|-------------------|------------------|----------|------------|---------|----------|----------|----------------|
+
+[2020/09/01 10:47:20,567] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.next() returned false
+[2020/09/01 10:47:20,567] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. ResultSet.close() returned void
+[2020/09/01 10:47:20,567] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.getConnection() returned net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@21b2e768
+[2020/09/01 10:47:20,567] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. Connection.getMetaData() returned oracle.jdbc.driver.OracleDatabaseMetaData@771a660
+[2020/09/01 10:47:20,567] INFO : net.sf.log4jdbc.log.log4j2.Log4j2SpyLogDelegator.1. PreparedStatement.close() returned 

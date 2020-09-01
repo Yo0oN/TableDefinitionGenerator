@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="makeTableDefinition">
+	<select id="getTableList" resultType="tableDefinition.dao.TableDefinition">
+		SELECT TNAME TABLE_NAME from tab WHERE TABTYPE = 'TABLE'
+	</select>
+	
+	<select id="getTableInfo" resultType="tableDefinition.dao.TableDefinition">
+		SELECT
+			  E.TABLE_NAME
+			, E.COLUMN_NAME
+			, E.DATA_TYPE
+			, E.DATA_LENGTH
+			, DECODE(E.NULLABLE, 'N', 'NOT NULL', '') NULLABLE
+			, E.COLUMN_ID
+			, E.COMMENTS
+			, NVL(F.CONSTRAINT_TYPE, ' ') CONSTRAINT_TYPE
+		FROM (select
+				  A.TABLE_NAME
+				, A.COLUMN_NAME
+				, A.DATA_TYPE
+				, A.DATA_LENGTH
+				, A.NULLABLE
+				, A.COLUMN_ID
+				, B.COMMENTS
+			from COLS A
+				inner join USER_COL_COMMENTS B
+				on A.TABLE_NAME= B.TABLE_NAME and A.COLUMN_NAME = B.COLUMN_NAME
+			order by A.TABLE_NAME, A.COLUMN_ID) E
+		LEFT OUTER JOIN (
+			SELECT
+				  C.TABLE_NAME
+				, D.COLUMN_NAME
+				, C.CONSTRAINT_NAME
+				, C.CONSTRAINT_TYPE
+			FROM USER_CONSTRAINTS C
+				INNER JOIN USER_CONS_COLUMNS D
+				ON C.TABLE_NAME = D.TABLE_NAME AND C.CONSTRAINT_NAME = D.CONSTRAINT_NAME) F
+		ON E.TABLE_NAME = F.TABLE_NAME AND E.COLUMN_NAME = F.COLUMN_NAME
+		WHERE E.TABLE_NAME = #{TABLE_NAME}
+		ORDER BY E.TABLE_NAME, E.COLUMN_ID
+  </select>
+</mapper>
+

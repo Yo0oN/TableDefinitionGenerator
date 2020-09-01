@@ -1,0 +1,37 @@
+1597897348266	Delete element
+1597899533273	Delete element
+1597899547716	Copy package
+1597899550192	Delete element
+1597899551433	Delete element
+1597899644103	Delete element
+1597899670770	Copy package
+1597899678009	Delete element
+1597899694920	Rename package 'TableDefinition.dao'
+1597899721673	Move compilation unit
+1597899724447	Move compilation unit
+1597899731430	Move compilation unit
+1597899748957	Move compilation unit
+1597899785883	Delete element
+1597900239055	Move file
+1597900288887	Delete element
+1597900308988	Rename package 'TableDefinition.DTO'
+1597900395208	Rename type 'service'
+1597901505819	Delete element
+1597902279188	Delete element
+1597902284882	Delete element
+1597902296052	Delete element
+1597987809468	Move file
+1597988247807	Move compilation unit
+1597988275357	Move compilation unit
+1597988282668	Move compilation unit
+1597988293880	Move elements
+1597988302250	Rename package 'TableDefinition.impl.mybatis'
+1597988308942	Move compilation unit
+1597988320597	Move file
+1597988430444	Move compilation unit
+1597988445510	Move compilation unit
+1597988611647	Move file
+1597991999902	Delete element
+1597992006316	Move compilation unit
+1597992016189	Rename type 'MakeTableDefinitionDAOImpl'
+1597992034568	Rename package 'TableDefinition.impl.mybatis'

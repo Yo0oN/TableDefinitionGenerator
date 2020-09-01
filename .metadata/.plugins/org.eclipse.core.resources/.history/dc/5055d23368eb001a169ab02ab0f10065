@@ -1,0 +1,54 @@
+package tableDefinition.dao;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class MakeTableDefinitionDAO {
+	private static final Logger logger = LogManager.getLogger(TableDefinition.class);
+
+	private final String RESOURCE = "myBatisConfig.xml";
+	private SqlSession sqlSession;
+	long startTime = new Date().getTime();
+	long endTime = new Date().getTime();
+
+	private final String QUERY_FIX = "makeTableDefinition"; // final
+
+	public MakeTableDefinitionDAO() {
+		InputStream is;
+		try {
+			is = Resources.getResourceAsStream(RESOURCE);
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+			sqlSession = sqlSessionFactory.openSession();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 테이블 목록 가져오기
+	 * @return List<TableDefinition>
+	 */
+	public List<TableDefinition> getTableList() {
+		logger.info("getTableList() : " + (endTime - startTime) + "밀리초");
+		return sqlSession.selectList(QUERY_FIX + ".getTableList");
+	}
+
+	/**
+	 * 테이블 상세정보 가져오기
+	 * @param tableDefinitionDTO
+	 * @return List<TableDefinition>
+	 */
+	public List<TableDefinition> getTableInfo(TableDefinition tableName) {
+		return sqlSession.selectList(QUERY_FIX + ".getTableInfo", tableName);
+	}
+
+}

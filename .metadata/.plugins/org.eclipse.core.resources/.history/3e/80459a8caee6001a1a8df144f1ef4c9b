@@ -1,0 +1,246 @@
+package util;
+
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import tableDefinition.dao.TableDefinition;
+
+public class ExcelUtil {
+	public String path = "C://Users//SAMSUNG//Desktop"; // 저장 경로
+	public String filename = "테이블 정의서" + new Date().getTime() + ".xlsx"; // 파일 이름
+	public Cell cell = null;
+	public Row row = null;
+
+	/**
+	 * 엑셀 파일을 생성한다.
+	 * @param workbook
+	 * @return
+	 */
+	public boolean excelGenerator (Workbook workbook) {
+		FileOutputStream fileOutputStream = null;
+		
+		try {
+			fileOutputStream = new FileOutputStream(path + "//" + filename); // 파일을 생성한다.
+			workbook.write(fileOutputStream);
+		} catch (IOException e) {
+			return false;
+		} finally {
+			try {
+				fileOutputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * 테이블 정의서 목록 만들기
+	 * @param result
+	 * @return
+	 */
+	public Workbook makeTableList (List<TableDefinition> tableListResult, Workbook workbook) {
+		List<TableDefinition> tableList = tableListResult;
+		int rowCount = 0;
+//		workbook = new XSSFWorkbook(); // workbook 생성
+
+		Cell cell = null;
+		Sheet sheet = workbook.createSheet("테이블 정의서 목록"); // 새로운 시트 생성
+		sheet.setColumnWidth(0, 10000); // 너비 지정
+		sheet.setColumnWidth(1, 10000);
+
+		CellStyle firstRowCellStyle = workbook.createCellStyle(); // 첫 행 셀 스타일 생성
+		Row row = sheet.createRow(rowCount++); // 첫 행 생성
+		firstRowCellStyle.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		firstRowCellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex()); // 배경색 설정
+		firstRowCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND); // 배경색 설정
+		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 1)); // 셀 합치기
+
+		cell = row.createCell(0); // 셀 생성
+		cell.setCellStyle(firstRowCellStyle); // 스타일 지정
+		cell.setCellValue("테이블 정의서"); // 값 지정
+		
+		CellStyle secRowCellStyle = workbook.createCellStyle(); // 두번째 행 스타일 생성
+		row = sheet.createRow(rowCount++); // 두번째 행 생성
+		secRowCellStyle = makeDefaultCellStyle(secRowCellStyle); // 공통사항 적용
+		secRowCellStyle.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		secRowCellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex()); // 배경색 설정
+		secRowCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND); // 배경색 설정
+		
+		cell = row.createCell(0); // 2행1열 셀 생성
+		cell.setCellStyle(secRowCellStyle); // 스타일 지정
+		cell.setCellValue("테이블 ID"); // 값 지정
+		
+		cell = row.createCell(1); // 셀 생성
+		cell.setCellStyle(secRowCellStyle); // 스타일 지정
+		cell.setCellValue("비고"); // 값 지정
+		
+		int tableListIndex = 0; // 테이블 목록 확인을 위한 값
+		
+		CellStyle rowCellStyle = workbook.createCellStyle(); // 목록의 행 스타일 생성
+		rowCellStyle = makeDefaultCellStyle(rowCellStyle); // 공통사항 적용
+		
+		while (tableListIndex < tableList.size()) {
+			row = sheet.createRow(rowCount++); // 다음 행 생성
+			cell = row.createCell(0); // 셀 생성
+			cell.setCellStyle(rowCellStyle); // 스타일 지정
+			cell.setCellValue(tableList.get(tableListIndex).getTABLE_NAME()); // 값 지정
+			cell = row.createCell(1); // 셀 생성
+			cell.setCellStyle(rowCellStyle); // 스타일 지정
+			workbook.createSheet(tableList.get(tableListIndex).getTABLE_NAME());
+			tableListIndex++;
+		}
+
+		return workbook;
+	}
+	
+	/**
+	 * 테이블 정의서 상세보기 탭 만들기
+	 * @param result
+	 * @return
+	 */
+	public Workbook makeTableInfoTab (List<TableDefinition> tableInfo, Workbook workbook) {
+		List<TableDefinition> tableListResult = tableInfo;
+
+		Sheet sheet = workbook.getSheet(tableInfo.get(0).getTABLE_NAME()); // 시트 호출
+		
+		workbook = makeListInfoHeaderCellStyle(workbook, sheet, tableInfo.get(0).getTABLE_NAME()); // 디자인 그려주기
+		int rowCount = 3;
+		
+		CellStyle numCellStyle = workbook.createCellStyle(); // 첫 행 셀 스타일 생성
+		Row row = sheet.createRow(rowCount++); // 첫 행 생성
+		numCellStyle.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		
+		CellStyle numCellStyle = workbook.createCellStyle(); // 첫 행 셀 스타일 생성
+		Row row = sheet.createRow(rowCount++); // 첫 행 생성
+		numCellStyle.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		
+
+		cell = row.createCell(0); // 셀 생성
+		cell.setCellStyle(numCellStyle); // 스타일 지정
+		cell.setCellValue("테이블 정의서"); // 값 지정
+		
+		CellStyle secRowCellStyle = workbook.createCellStyle(); // 두번째 행 스타일 생성
+		row = sheet.createRow(rowCount++); // 두번째 행 생성
+		secRowCellStyle = makeDefaultCellStyle(secRowCellStyle); // 공통사항 적용
+		secRowCellStyle.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		secRowCellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex()); // 배경색 설정
+		secRowCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND); // 배경색 설정
+		
+		cell = row.createCell(0); // 2행1열 셀 생성
+		cell.setCellStyle(secRowCellStyle); // 스타일 지정
+		cell.setCellValue("테이블 ID"); // 값 지정
+		
+		cell = row.createCell(1); // 셀 생성
+		cell.setCellStyle(secRowCellStyle); // 스타일 지정
+		cell.setCellValue("비고"); // 값 지정
+		
+		int tableListIndex = 0; // 테이블 목록 확인을 위한 값
+		
+		CellStyle rowCellStyle = workbook.createCellStyle(); // 목록의 행 스타일 생성
+		rowCellStyle = makeDefaultCellStyle(rowCellStyle); // 공통사항 적용
+		
+		
+		return null;
+	}
+	
+	/**
+	 * 기본 셀 스타일 세로 가운데 정렬 + 테두리 추가
+	 * @param cellStyle
+	 * @return
+	 */
+	public CellStyle makeDefaultCellStyle(CellStyle cellStyle) {
+		cellStyle.setVerticalAlignment(VerticalAlignment.CENTER); // 세로 가운데 정렬
+		cellStyle.setBorderBottom(BorderStyle.THIN);
+		cellStyle.setBorderTop(BorderStyle.THIN);
+		cellStyle.setBorderLeft(BorderStyle.THIN);
+		cellStyle.setBorderRight(BorderStyle.THIN);
+		return cellStyle;
+	}
+	
+	/**
+	 * 상세보기 목록 셀 스타일
+	 * @param cellStyle
+	 * @return
+	 */
+	public Workbook makeListInfoHeaderCellStyle(Workbook workbook, Sheet sheet, String tableName) {
+		CellStyle firstRowCellStyle = workbook.createCellStyle(); // 첫 행 셀 스타일 생성
+		row = sheet.createRow(0); // 첫 행 생성
+		firstRowCellStyle = makeDefaultCellStyle(firstRowCellStyle);
+		firstRowCellStyle.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		firstRowCellStyle.setFillForegroundColor(IndexedColors.LIGHT_YELLOW.getIndex()); // 배경색 설정
+		firstRowCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND); // 배경색 설정
+		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 6)); // 셀 합치기
+
+		cell = row.createCell(0); // 셀 생성
+		cell.setCellStyle(firstRowCellStyle); // 스타일 지정
+		cell.setCellValue("테이블 정의서"); // 값 지정		
+		
+		CellStyle secRowCellStyle1 = workbook.createCellStyle(); // 두번째 행 스타일1 생성
+		row = sheet.createRow(1); // 두번째 행 생성
+		secRowCellStyle1 = makeDefaultCellStyle(secRowCellStyle1); // 공통사항 적용
+		secRowCellStyle1.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		secRowCellStyle1.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex()); // 배경색 설정
+		secRowCellStyle1.setFillPattern(FillPatternType.SOLID_FOREGROUND); // 배경색 설정
+		sheet.addMergedRegion(new CellRangeAddress(1, 1, 0, 1)); // 셀 합치기
+		
+		cell = row.createCell(0); // 2행1열 셀 생성
+		cell.setCellStyle(secRowCellStyle1); // 스타일 지정
+		cell.setCellValue("테이블 ID"); // 값 지정
+		
+		CellStyle secRowCellStyle2 = workbook.createCellStyle(); // 두번째 행 스타일2 생성
+		secRowCellStyle2 = makeDefaultCellStyle(secRowCellStyle2); // 공통사항 적용
+		secRowCellStyle2.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		sheet.addMergedRegion(new CellRangeAddress(1, 1, 2, 6)); // 셀 합치기
+		
+		cell = row.createCell(2); // 2행3열 셀 생성
+		cell.setCellStyle(secRowCellStyle2); // 스타일 지정
+		cell.setCellValue(tableName); // 값 지정
+		
+		CellStyle thirdRowCellStyle = workbook.createCellStyle(); // 세번째 행 스타일 생성
+		row = sheet.createRow(2); // 두번째 행 생성
+		thirdRowCellStyle = makeDefaultCellStyle(thirdRowCellStyle); // 공통사항 적용
+		thirdRowCellStyle.setAlignment(HorizontalAlignment.CENTER); // 가로 가운데 정렬
+		
+		cell = row.createCell(0); // 3행1열 셀 생성
+		cell.setCellStyle(thirdRowCellStyle); // 스타일 지정
+		cell.setCellValue("번호"); // 값 지정
+		cell = row.createCell(1); // 3행1열 셀 생성
+		cell.setCellStyle(thirdRowCellStyle); // 스타일 지정
+		cell.setCellValue("컬럼명(한글)"); // 값 지정
+		cell = row.createCell(2); // 3행1열 셀 생성
+		cell.setCellStyle(thirdRowCellStyle); // 스타일 지정
+		cell.setCellValue("컬럼명(영문)"); // 값 지정
+		cell = row.createCell(3); // 3행1열 셀 생성
+		cell.setCellStyle(thirdRowCellStyle); // 스타일 지정
+		cell.setCellValue("DataType"); // 값 지정
+		cell = row.createCell(4); // 3행1열 셀 생성
+		cell.setCellStyle(thirdRowCellStyle); // 스타일 지정
+		cell.setCellValue("Length"); // 값 지정
+		cell = row.createCell(5); // 3행1열 셀 생성
+		cell.setCellStyle(thirdRowCellStyle); // 스타일 지정
+		cell.setCellValue("Null"); // 값 지정
+		cell = row.createCell(6); // 3행1열 셀 생성
+		cell.setCellStyle(thirdRowCellStyle); // 스타일 지정
+		cell.setCellValue("PK"); // 값 지정
+		
+		return workbook;
+	}
+
+}

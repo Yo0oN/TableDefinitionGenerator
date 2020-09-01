@@ -1,0 +1,74 @@
+package tableDefinition.service;
+
+import java.util.Date;
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import tableDefinition.dao.MakeTableDefinitionDAO;
+import tableDefinition.dao.TableDefinition;
+import util.ExcelUtil;
+
+public class TableDefinitionService {
+	private static final Logger logger = LogManager.getLogger(TableDefinition.class);
+
+    MakeTableDefinitionDAO makeTableDefinitionDAO = new MakeTableDefinitionDAO();
+    ExcelUtil excelUtil = new ExcelUtil();
+    long startTime;
+    long endTime;
+    
+	/**
+	 * 테이블 정의서 생성
+	 */
+	@SuppressWarnings("resource")
+	public boolean tableDefinitionGenerator () {
+		startTime = new Date().getTime();
+		
+		List<TableDefinition> tableListResult = getTableList();
+		
+		if (tableListResult == null || tableListResult.size() == 0) {
+			return false;
+		}
+		Workbook workbook = new XSSFWorkbook();
+
+		workbook = excelUtil.makeTableList(tableListResult, workbook);
+		
+		endTime = new Date().getTime();
+		
+		logger.warn("목록 읽고 쓰기 : " + (endTime - startTime) + "밀리초");
+		
+		for (int i = 0; i < tableListResult.size(); i++) {
+			startTime = new Date().getTime();
+			
+			List<TableDefinition> tableInfoResult = getTableListInfo(tableListResult.get(i));
+			
+			excelUtil.makeTableInfoTab(tableInfoResult, workbook);
+			endTime = new Date().getTime();
+			
+			logger.warn("상세정보 읽고 쓰기 : " + (endTime - startTime) + "밀리초");
+		}
+		return excelUtil.excelGenerator(workbook);
+	}
+	
+    /**
+     * 테이블 목록 가져오기
+     * @return boolean
+     */
+	public List<TableDefinition> getTableList() {
+		List<TableDefinition> tableListResult = makeTableDefinitionDAO.getTableList();
+		return tableListResult; 
+	}
+	
+    /**
+     * 테이블 상세정보 가져오기
+     * @return boolean
+     */
+	public List<TableDefinition> getTableListInfo(TableDefinition tableName) {
+		List<TableDefinition> tableInfoResult = makeTableDefinitionDAO.getTableInfo(tableName);
+
+		return tableInfoResult; 
+	}
+}

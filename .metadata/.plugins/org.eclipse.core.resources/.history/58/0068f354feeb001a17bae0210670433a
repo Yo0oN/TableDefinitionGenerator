@@ -1,0 +1,256 @@
+package util;
+
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.poi.common.usermodel.HyperlinkType;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.usermodel.XSSFHyperlink;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import tableDefinition.dao.TableDefinition;
+
+public class ExcelUtil {
+	private Workbook workbook = new XSSFWorkbook();
+	private String path = "C://Users//SAMSUNG//Desktop";
+	private String filename = "테이블정의서" + new Date().getTime() + ".xlsx";
+	private Cell cell;
+	private Row row;
+
+	/**
+	 * 엑셀 작성
+	 * @param workbook
+	 * @return
+	 */
+	public boolean excelGenerator() {
+		try(FileOutputStream fileOutputStream = new FileOutputStream(path + File.separator + filename);) { // AutoCloseable
+			workbook.write(fileOutputStream);
+		} catch (IOException e) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 테이블 목록 작성
+	 * @param result
+	 * @return
+	 */
+	public Workbook makeTableListSheet(List<TableDefinition> tableListResult) {
+		List<TableDefinition> tableList = tableListResult;
+		int rowCount = 0;
+
+		Cell cell = null;
+		Sheet sheet = workbook.createSheet("테이블 정의서 목록");
+		sheet.setColumnWidth(0, 10000); // 너비 지정
+		sheet.setColumnWidth(1, 10000);
+
+		CellStyle firstRowCellStyle = workbook.createCellStyle();
+		Row row = sheet.createRow(rowCount++);
+		firstRowCellStyle.setAlignment(HorizontalAlignment.CENTER);
+		firstRowCellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+		firstRowCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 1));
+
+		cell = row.createCell(0);
+		cell.setCellStyle(firstRowCellStyle);
+		cell.setCellValue("테이블 정의서");
+		
+		CellStyle secRowCellStyle = workbook.createCellStyle();
+		row = sheet.createRow(rowCount++);
+		secRowCellStyle = makeDefaultCellStyle(secRowCellStyle);
+		secRowCellStyle.setAlignment(HorizontalAlignment.CENTER);
+		secRowCellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+		secRowCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		
+		cell = row.createCell(0);
+		cell.setCellStyle(secRowCellStyle);
+		cell.setCellValue("테이블 ID");
+		
+		cell = row.createCell(1);
+		cell.setCellStyle(secRowCellStyle);
+		cell.setCellValue("비고");
+		
+		int tableListIndex = 0;
+		
+		CellStyle rowCellStyle = workbook.createCellStyle();
+		rowCellStyle = makeDefaultCellStyle(rowCellStyle);
+
+		while (tableListIndex < tableList.size()) {
+			XSSFHyperlink hyperlink = (XSSFHyperlink) workbook.getCreationHelper().createHyperlink(HyperlinkType.DOCUMENT);
+			String link = tableList.get(tableListIndex).getTABLE_NAME() + "!A1";
+			hyperlink.setAddress(link);
+			hyperlink.setLabel(link);
+			
+			row = sheet.createRow(rowCount++);
+			
+			cell = row.createCell(0);
+			cell.setCellStyle(rowCellStyle);
+			cell.setCellValue(tableList.get(tableListIndex).getTABLE_NAME());
+			cell.setHyperlink(hyperlink);
+			
+			cell = row.createCell(1);
+			cell.setCellStyle(rowCellStyle);
+			
+			workbook.createSheet(tableList.get(tableListIndex).getTABLE_NAME());
+			tableListIndex++;
+		}
+
+		return workbook;
+	}
+	
+	/**
+	 * 테이블 상세정보 작성
+	 * @param result
+	 * @return
+	 */
+	public Workbook makeTableInfoTab (List<TableDefinition> tableInfo) {
+		Sheet sheet = workbook.getSheet(tableInfo.get(0).getTABLE_NAME());
+		
+		workbook = makeListInfoHeaderCellStyle(workbook, sheet, tableInfo.get(0).getTABLE_NAME());
+
+		
+		CellStyle numCellStyle = makeDefaultCellStyle(workbook.createCellStyle());
+		numCellStyle.setAlignment(HorizontalAlignment.CENTER);
+		
+		CellStyle defaultCellStyle = makeDefaultCellStyle(workbook.createCellStyle());
+		
+		CellStyle lengthCellStyle = makeDefaultCellStyle(workbook.createCellStyle());
+		lengthCellStyle.setAlignment(HorizontalAlignment.RIGHT);
+
+		
+		int rowCount = 3;
+		int columnCount = 0;
+		
+		while (rowCount < tableInfo.size() + 3) {
+			row = sheet.createRow(rowCount);
+			cell = row.createCell(columnCount++);
+			cell.setCellStyle(numCellStyle);
+			cell.setCellValue(tableInfo.get(rowCount - 3).getCOLUMN_ID());
+			
+			cell = row.createCell(columnCount++);
+			cell.setCellStyle(defaultCellStyle);
+			cell.setCellValue(tableInfo.get(rowCount - 3).getCOMMENTS());
+
+			cell = row.createCell(columnCount++);
+			cell.setCellStyle(defaultCellStyle);
+			cell.setCellValue(tableInfo.get(rowCount - 3).getCOLUMN_NAME());
+			
+			cell = row.createCell(columnCount++);
+			cell.setCellStyle(defaultCellStyle);
+			cell.setCellValue(tableInfo.get(rowCount - 3).getDATA_TYPE());
+			
+			cell = row.createCell(columnCount++);
+			cell.setCellStyle(lengthCellStyle);
+			cell.setCellValue(tableInfo.get(rowCount - 3).getDATA_LENGTH());
+
+			cell = row.createCell(columnCount++);
+			cell.setCellStyle(defaultCellStyle);
+			cell.setCellValue(tableInfo.get(rowCount - 3).getNULLABLE());
+			
+			cell = row.createCell(columnCount++);
+			cell.setCellStyle(defaultCellStyle);
+			cell.setCellValue(tableInfo.get(rowCount - 3).getCONSTRAINT_TYPE());
+			
+			rowCount++;
+			columnCount = 0;
+		}
+		
+		return workbook;
+	}
+	
+	/**
+	 * 공통 스타일
+	 * @param cellStyle
+	 * @return
+	 */
+	public CellStyle makeDefaultCellStyle(CellStyle cellStyle) {
+		cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+		cellStyle.setBorderBottom(BorderStyle.THIN);
+		cellStyle.setBorderTop(BorderStyle.THIN);
+		cellStyle.setBorderLeft(BorderStyle.THIN);
+		cellStyle.setBorderRight(BorderStyle.THIN);
+		return cellStyle;
+	}
+	
+	/**
+	 * 상세정보 헤더
+	 * @param cellStyle
+	 * @return
+	 */
+	public Workbook makeListInfoHeaderCellStyle(Workbook workbook, Sheet sheet, String tableName) {
+		CellStyle firstRowCellStyle = workbook.createCellStyle();
+		row = sheet.createRow(0);
+		firstRowCellStyle.setAlignment(HorizontalAlignment.CENTER);
+		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 6));
+
+		cell = row.createCell(0);
+		cell.setCellStyle(firstRowCellStyle); 
+		cell.setCellValue("테이블 정의서"); 		
+		
+		CellStyle secRowCellStyle1 = workbook.createCellStyle(); 
+		row = sheet.createRow(1); 
+		secRowCellStyle1.setAlignment(HorizontalAlignment.CENTER); 
+		secRowCellStyle1.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex()); 
+		secRowCellStyle1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		sheet.addMergedRegion(new CellRangeAddress(1, 1, 0, 1));
+		
+		cell = row.createCell(0);
+		cell.setCellStyle(secRowCellStyle1);
+		cell.setCellValue("테이블 ID");
+		
+		CellStyle secRowCellStyle2 = workbook.createCellStyle();
+		secRowCellStyle2.setAlignment(HorizontalAlignment.CENTER);
+		sheet.addMergedRegion(new CellRangeAddress(1, 1, 2, 6));
+		
+		cell = row.createCell(2);
+		cell.setCellStyle(secRowCellStyle2);
+		cell.setCellValue(tableName);
+		
+		CellStyle thirdRowCellStyle = workbook.createCellStyle();
+		row = sheet.createRow(2);
+		thirdRowCellStyle.setFillForegroundColor(IndexedColors.LIGHT_YELLOW.getIndex());
+		thirdRowCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+		thirdRowCellStyle = makeDefaultCellStyle(thirdRowCellStyle);
+		thirdRowCellStyle.setAlignment(HorizontalAlignment.CENTER);
+		
+		cell = row.createCell(0);
+		cell.setCellStyle(thirdRowCellStyle);
+		cell.setCellValue("번호");
+		cell = row.createCell(1);
+		cell.setCellStyle(thirdRowCellStyle);
+		cell.setCellValue("컬럼명(한글)");
+		cell = row.createCell(2);
+		cell.setCellStyle(thirdRowCellStyle);
+		cell.setCellValue("컬럼명(영문)");
+		cell = row.createCell(3);
+		cell.setCellStyle(thirdRowCellStyle);
+		cell.setCellValue("DataType");
+		cell = row.createCell(4);
+		cell.setCellStyle(thirdRowCellStyle);
+		cell.setCellValue("Length");
+		cell = row.createCell(5);
+		cell.setCellStyle(thirdRowCellStyle);
+		cell.setCellValue("Null");
+		cell = row.createCell(6);
+		cell.setCellStyle(thirdRowCellStyle);
+		cell.setCellValue("PK");
+		
+		return workbook;
+	}
+
+}

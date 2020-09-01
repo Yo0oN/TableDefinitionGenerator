@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="TRACE">
+ <!-- 해당 설정파일에서 사용하는 프로퍼티 -->
+    <Properties>
+        <Property name="logNm">Spring Log4j2 Test</Property>
+        <!-- 아래의 layoutPattern은 여기서 정하지 않고, Appenders-Console의 PatternLayout의 pattern값으로 바로 넣어도 된다. -->
+        <Property name="layoutPattern">[%d{yyyy/MM/dd HH:mm:ss,SSS}] %p : %C.%m%n</Property>
+    </Properties>
+  <!-- LogEvent를 전달해주는 Appender / Layout 설정 -->
+    <Appenders>
+    	<!-- 콘솔에 찍히는 서식. PatternLayout은 위에서 정의한 것을 가져옴 -->
+        <Console name="Console_Appender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${layoutPattern}"/>
+        </Console>
+        
+        <RollingFile name="File_Appender" fileName="logs/${logNm}.log" filePattern="logs/${logNm}_%d{yyyy-MM-dd}_%i.log.gz">
+            <PatternLayout pattern="${layoutPattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="200KB"/>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10" fileIndex="min"/> <!-- 10개까지만 만든다. 그 이상 파일 생성은 하지 않는다. -->
+        </RollingFile>
+    </Appenders>
+  <!-- Logger -->
+    <Loggers>
+    	<!-- ROOT : 모든 로그는 TRACE레벨 이상일 때만 찍는다. -->
+        <Root level="TRACE" additivity="false">
+            <AppenderRef ref="Console_Appender"/>
+            <AppenderRef ref="File_Appender"/>
+        </Root>
+        <!-- LOGGER : 이부분은 INFO레벨 이상만 찍겠다. 그런데 현재 사용하지 않는 것들도 있으니 찍히진 않을듯 -->
+        <Logger name="org.springframework" level="INFO" additivity="false">
+            <AppenderRef ref="Console_Appender" />
+            <AppenderRef ref="File_Appender"/>
+        </Logger>
+        <!-- 내 패키지는 TRACE 이상을 찍겠다. -->
+        <Logger name="tableDefinition" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console_Appender" />
+        </Logger>
+        <!-- 내 패키지는 TRACE 이상을 찍겠다. -->
+        <Logger name="util" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console_Appender" />
+        </Logger>
+    </Loggers>
+</Configuration>

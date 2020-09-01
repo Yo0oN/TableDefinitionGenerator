@@ -1,0 +1,116 @@
+log4j.rootLogger=INFO, CONSOLE
+
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d{HH:mm:ss, SSS}             %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.SPRING=org.apache.log4j.ConsoleAppender
+log4j.appender.SPRING.layout=org.apache.log4j.PatternLayout
+log4j.appender.SPRING.layout.ConversionPattern=%d{HH:mm:ss, SSS}      SPRING %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.OSCACHE=org.apache.log4j.ConsoleAppender
+log4j.appender.OSCACHE.layout=org.apache.log4j.PatternLayout
+log4j.appender.OSCACHE.layout.ConversionPattern=%d{HH:mm:ss, SSS}     OSCACHE %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.TILES=org.apache.log4j.ConsoleAppender
+log4j.appender.TILES.layout=org.apache.log4j.PatternLayout
+log4j.appender.TILES.layout.ConversionPattern=%d{HH:mm:ss, SSS}       TILES %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.JAVASQL=org.apache.log4j.ConsoleAppender
+log4j.appender.JAVASQL.layout=org.apache.log4j.PatternLayout
+log4j.appender.JAVASQL.layout.ConversionPattern=%d{HH:mm:ss, SSS}     JAVASQL %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.FRAMEWORK=org.apache.log4j.ConsoleAppender
+log4j.appender.FRAMEWORK.layout=org.apache.log4j.PatternLayout
+log4j.appender.FRAMEWORK.layout.ConversionPattern=%d{HH:mm:ss, SSS}   FRAMEWORK %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.SECURITY=org.apache.log4j.ConsoleAppender
+log4j.appender.SECURITY.layout=org.apache.log4j.PatternLayout
+log4j.appender.SECURITY.layout.ConversionPattern=%d{HH:mm:ss, SSS}   SECURITY %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.APPLICATION=org.apache.log4j.ConsoleAppender
+log4j.appender.APPLICATION.layout=org.apache.log4j.PatternLayout
+log4j.appender.APPLICATION.layout.ConversionPattern=%d{HH:mm:ss, SSS} APPLICATION %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.appender.HAZELCAST=org.apache.log4j.ConsoleAppender
+log4j.appender.HAZELCAST.layout=org.apache.log4j.PatternLayout
+log4j.appender.HAZELCAST.layout.ConversionPattern=%d{HH:mm:ss, SSS}   HAZELCAST %5p > %m ((%C{1}.%M:%L))%n
+
+log4j.logger.org.springframework.aop.framework.Cglib2AopProxy=ERROR, SPRING
+log4j.additivity.org.springframework.aop.framework.Cglib2AopProxy=false
+
+log4j.logger.org.springframework.aop.framework.CglibAopProxy=ERROR, SPRING
+log4j.additivity.org.springframework.aop.framework.CglibAopProxy=false
+
+# Spring framework Logger
+log4j.logger.org.springframework=INFO, SPRING
+log4j.additivity.org.springframework=false
+
+# osCache Logger
+log4j.logger.com.opensymphony.oscache=INFO, OSCACHE
+log4j.additivity.com.opensymphony.oscache=false
+
+# tiles Logger
+log4j.logger.org.apache.tiles=INFO, TILES
+log4j.additivity.org.apache.tiles=false
+
+# ibatis Logger
+log4j.logger.org.apache.ibatis=DEBUG, JAVASQL
+log4j.additivity.org.apache.ibatis=false
+
+# apache commons Logger
+log4j.logger.org.apache.commons.beanutils=INFO, CONSOLE
+log4j.additivity.org.apache.commons.beanutils=false
+log4j.logger.org.apache.commons.digester=INFO, CONSOLE
+log4j.additivity.org.apache.commons.digester=false
+
+# mybatis loggers
+log4j.logger.com.ibatis=DEBUG, JAVASQL
+log4j.logger.com.ibatis.common.jdbc.SimpleDataSource=DEBUG, JAVASQL
+log4j.logger.com.ibatis.common.jdbc.ScriptRunner=DEBUG, JAVASQL
+log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate=DEBUG, JAVASQL
+
+# ibatis Logger
+log4j.logger.java.sql=DEBUG, JAVASQL
+log4j.additivity.java.sql=false
+
+log4j.logger.java.sql.Connection=DEBUG, JAVASQL
+log4j.additivity.java.sql.Connection=false
+
+log4j.logger.java.sql.Statement=DEBUG, JAVASQL
+log4j.additivity.java.sql.Statement=false
+
+log4j.logger.java.sql.PreparedStatement=DEBUG, JAVASQL
+log4j.additivity.java.sql.PreparedStatement=false
+
+log4j.logger.java.sql.ResultSet=DEBUG, JAVASQL
+log4j.additivity.java.sql.ResultSet=false
+
+# ub-framework logger
+log4j.logger.com.ubone.framework=INFO, FRAMEWORK
+log4j.additivity.com.ubone.framework=false
+
+log4j.logger.com.ubone.framework.security=INFO, SECURITY
+log4j.additivity.com.ubone.framework.security=false
+
+# ---------------------------------------------------------------------
+# jdbc관련 로그 OFF 
+# ---------------------------------------------------------------------
+log4j.logger.jdbc=OFF, JAVASQL
+log4j.additivity.jdbc=false
+
+# Query Loggers
+log4j.logger.jdbc.sqlonly=INFO, JAVASQL
+log4j.additivity.jdbc.sqlonly=false
+
+# Query 실행시간 체크해제
+#log4j.logger.jdbc.sqltiming=DEBUG, JAVASQL
+#log4j.additivity.jdbc.sqltiming=false
+
+# 실행된 쿼리의 결과를 볼경우 체크해제
+#log4j.logger.jdbc.resultsettable=DEBUG, JAVASQL
+#log4j.additivity.jdbc.resultsettable=false
+# ---------------------------------------------------------------------
+
+log4j.logger.com.hazelcast=INFO, HAZELCAST
+log4j.additivity.com.hazelcast=false

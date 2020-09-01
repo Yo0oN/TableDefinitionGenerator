@@ -1,0 +1,19 @@
+package tableDefinition;
+
+import tableDefinition.service.TableDefinitionService;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TableDefinitionService td = new TableDefinitionService();
+		boolean result = td.tableDefinitionGenerator();
+		
+		if (result == true) {
+			System.out.println("颇老 积己 己傍!");
+		} else {
+			System.out.println("颇老 积己 角菩!");
+		}
+	}
+
+}
