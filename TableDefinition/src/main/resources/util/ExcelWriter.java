@@ -85,10 +85,10 @@ public class ExcelWriter {
 		while (tableListIndex < tableList.size()) {
 			row = sheet.createRow(rowCount++);
 
-			cell = writeStringCell(row, cell, 0, tableList.get(tableListIndex).getTABLE_NAME(), rowCellStyle);
+			cell = writeCell(row, cell, 0, tableList.get(tableListIndex).getTABLE_NAME(), rowCellStyle);
 			cell = setDocumentHyperlink(cell, tableList.get(tableListIndex).getTABLE_NAME()); // 링크 설정하기
 			
-			cell = writeStringCell(row, cell, 1, tableList.get(tableListIndex).getTABLE_NAME(), rowCellStyle);
+			cell = writeCell(row, cell, 1, "", rowCellStyle);
 
 			workbook.createSheet(tableList.get(tableListIndex).getTABLE_NAME());
 			tableListIndex++;
@@ -104,20 +104,13 @@ public class ExcelWriter {
 	 */
 	public Workbook makeTableInfoTab (List<TableDefinition> tableInfo) {
 		Sheet sheet = workbook.getSheet(tableInfo.get(0).getTABLE_NAME());
-		
 		workbook = makeListInfoHeaderCellStyle(workbook, sheet, tableInfo.get(0).getTABLE_NAME());
 
-		
-		CellStyle numCellStyle = makeDefaultCellStyle(workbook.createCellStyle());
-		numCellStyle = makeDefaultCenterCellStyle(numCellStyle);
-		
+		CellStyle centerCellStyle = makeDefaultCenterCellStyle(workbook.createCellStyle());
 		CellStyle defaultCellStyle = makeDefaultCellStyle(workbook.createCellStyle());
-		
-		CellStyle lengthCellStyle = makeDefaultCellStyle(workbook.createCellStyle());
 		
 		int rowCount = 3;
 		int columnCount = 0;
-		
 		while (rowCount < tableInfo.size() + 3) {
 			String[] tableInfoList = {tableInfo.get(rowCount - 3).getCOLUMN_ID(), tableInfo.get(rowCount - 3).getCOMMENTS(),
 					tableInfo.get(rowCount - 3).getCOLUMN_NAME(), tableInfo.get(rowCount - 3).getDATA_TYPE(),
@@ -128,33 +121,12 @@ public class ExcelWriter {
 			
 			for (int i = 0; i < tableInfoList.length; i++) {
 				if (i == 0) {
-					writeStringCell(row, cell, columnCount, tableInfoList[i], numCellStyle);
+					writeCell(row, cell, columnCount, tableInfoList[i], centerCellStyle);
 				} else {
-					writeStringCell(row, cell, columnCount, tableInfoList[i], defaultCellStyle);
+					writeCell(row, cell, columnCount, tableInfoList[i], defaultCellStyle);
 				}
-				
+				columnCount++;
 			}
-			
-			writeStringCell(row, cell, columnCount, tableInfo.get(rowCount - 3).getCOLUMN_ID(), numCellStyle);
-			columnCount++;
-
-			writeStringCell(row, cell, columnCount, tableInfo.get(rowCount - 3).getCOMMENTS(), defaultCellStyle);
-			columnCount++;
-			
-			writeStringCell(row, cell, columnCount, tableInfo.get(rowCount - 3).getCOLUMN_NAME(), defaultCellStyle);
-			columnCount++;
-			
-			writeStringCell(row, cell, columnCount, tableInfo.get(rowCount - 3).getDATA_TYPE(), defaultCellStyle);
-			columnCount++;
-			
-			writeNumericCell(row, cell, columnCount, Double.parseDouble(tableInfo.get(rowCount - 3).getDATA_LENGTH()), lengthCellStyle);
-			columnCount++;
-			
-			writeStringCell(row, cell, columnCount, tableInfo.get(rowCount - 3).getNULLABLE(), defaultCellStyle);
-			columnCount++;
-			
-			writeStringCell(row, cell, columnCount, tableInfo.get(rowCount - 3).getCONSTRAINT_TYPE(), defaultCellStyle);
-			
 			rowCount++;
 			columnCount = 0;
 		}
@@ -167,14 +139,15 @@ public class ExcelWriter {
 	 * @param cellStyle
 	 * @return
 	 */
-	public Workbook makeListInfoHeaderCellStyle(Workbook workbook, Sheet sheet, String tableName) {
+		public Workbook makeListInfoHeaderCellStyle(Workbook workbook, Sheet sheet, String tableName) {
 		CellStyle firstRowCellStyle = workbook.createCellStyle();
 		row = sheet.createRow(0);
 		firstRowCellStyle = makeDefaultCenterCellStyle(firstRowCellStyle);
 		
 		sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 6));
 
-		writeStringCell(row, cell, 0, "테의블 정의서", firstRowCellStyle);
+		cell = writeCell(row, cell, 0, "테이블 정의서", firstRowCellStyle);
+		setDocumentHyperlink(cell, "테이블 정의서 목록");
 		
 		CellStyle secRowCellStyle1 = workbook.createCellStyle(); 
 		row = sheet.createRow(1); 
@@ -184,14 +157,14 @@ public class ExcelWriter {
 		
 		sheet.addMergedRegion(new CellRangeAddress(1, 1, 0, 1));
 
-		writeStringCell(row, cell, 0, "테이블 ID", secRowCellStyle1);
+		writeCell(row, cell, 0, "테이블 ID", secRowCellStyle1);
 		
 		CellStyle secRowCellStyle2 = workbook.createCellStyle();
 		secRowCellStyle2 = makeDefaultCenterCellStyle(secRowCellStyle2);
 
 		sheet.addMergedRegion(new CellRangeAddress(1, 1, 2, 6));
 
-		writeStringCell(row, cell, 2, tableName, secRowCellStyle2);
+		writeCell(row, cell, 2, tableName, secRowCellStyle2);
 		
 		CellStyle thirdRowCellStyle = workbook.createCellStyle();
 		row = sheet.createRow(2);
@@ -199,13 +172,11 @@ public class ExcelWriter {
 		thirdRowCellStyle = setCellBackground(thirdRowCellStyle, IndexedColors.LIGHT_YELLOW.getIndex()); // 배경색 설정
 		thirdRowCellStyle = makeDefaultCenterCellStyle(thirdRowCellStyle);
 
-		writeStringCell(row, cell, 0, "번호", thirdRowCellStyle);
-		writeStringCell(row, cell, 1, "컬럼명(한글)", thirdRowCellStyle);
-		writeStringCell(row, cell, 2, "컬럼명(영문)", thirdRowCellStyle);
-		writeStringCell(row, cell, 3, "DataType", thirdRowCellStyle);
-		writeStringCell(row, cell, 4, "Length", thirdRowCellStyle);
-		writeStringCell(row, cell, 5, "Null", thirdRowCellStyle);
-		writeStringCell(row, cell, 6, "PK", thirdRowCellStyle);
+		TableColumnName[] tableColumnNameList = TableColumnName.values();
+		
+		for (int i = 0; i < tableColumnNameList.length; i++) {
+			writeCell(row, cell, i, tableColumnNameList[i].toString(), thirdRowCellStyle);
+		}
 		
 		return workbook;
 	}
@@ -230,13 +201,6 @@ public class ExcelWriter {
 	 * @return
 	 */
 	public CellStyle makeDefaultCenterCellStyle(CellStyle cellStyle) {
-		/*
-		 * cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
-		 * cellStyle.setBorderBottom(BorderStyle.THIN);
-		 * cellStyle.setBorderTop(BorderStyle.THIN);
-		 * cellStyle.setBorderLeft(BorderStyle.THIN);
-		 * cellStyle.setBorderRight(BorderStyle.THIN);
-		 */
 		cellStyle = makeDefaultCellStyle(cellStyle);
 		cellStyle.setAlignment(HorizontalAlignment.CENTER);
 		
@@ -256,48 +220,51 @@ public class ExcelWriter {
 	}
 	
 	/**
-	 * 스타일이 있는 문자 셀 작성하기
+	 * 셀이 숫자인지 문자인지 확인 후 boolean 리턴
+	 * @param value
 	 * @return
 	 */
-	public Cell writeStringCell(Row row, Cell cell, int columnCount, String cellValue, CellStyle cellStyle) {
+	public boolean isNumeric(String value) {
+		boolean isNumericResult;
+		if(value == null || value.equals("")) {
+			return false;
+		}
+		try {
+			Double.parseDouble(value);
+			isNumericResult = true;
+		} catch (NumberFormatException e) {
+			isNumericResult = false;
+		}
+		return isNumericResult;
+	}
+	
+	/**
+	 * 스타일이 있는 숫자, 문자 셀 작성하기
+	 * @return
+	 */
+	public Cell writeCell(Row row, Cell cell, int columnCount, String cellValue, CellStyle cellStyle) {
 		cell = row.createCell(columnCount);
 		cell.setCellStyle(cellStyle);
-		cell.setCellValue(cellValue);
 		
+		if (isNumeric(cellValue) == true) {
+			cell.setCellValue(Double.parseDouble(cellValue));
+		} else {
+			cell.setCellValue(cellValue);
+		}
 		return cell;
 	}
 	
 	/**
-	 * 스타일이 없는 문자 셀 작성하기
+	 * 스타일이 없는 셀 작성하기
 	 * @return
 	 */
-	public Cell writeStringCell(Row row, Cell cell, int columnCount, String cellValue) {
+	public Cell writeCell(Row row, Cell cell, int columnCount, String cellValue) {
 		cell = row.createCell(columnCount);
-		cell.setCellValue(cellValue);
-		
-		return cell;
-	}
-	
-	/**
-	 * 스타일이 있는 숫자 셀 작성하기
-	 * @return
-	 */
-	public Cell writeNumericCell(Row row, Cell cell, int columnCount, double cellValue, CellStyle cellStyle) {
-		cell = row.createCell(columnCount);
-		cell.setCellStyle(cellStyle);
-		cell.setCellValue(cellValue);
-		
-		return cell;
-	}
-	
-	/**
-	 * 스타일이 없는 숫자 셀 작성하기
-	 * @return
-	 */
-	public Cell writeNumericCell(Row row, Cell cell, int columnCount, double cellValue) {
-		cell = row.createCell(columnCount);
-		cell.setCellValue(cellValue);
-		
+		if (isNumeric(cellValue) == true) {
+			cell.setCellValue(Double.parseDouble(cellValue));
+		} else {
+			cell.setCellValue(cellValue);
+		}
 		return cell;
 	}
 	
@@ -310,7 +277,7 @@ public class ExcelWriter {
 	public Cell setDocumentHyperlink(Cell cell, String link) {
 		XSSFHyperlink hyperlink = (XSSFHyperlink) workbook.getCreationHelper().createHyperlink(HyperlinkType.DOCUMENT);
 		
-		hyperlink.setAddress(link + "!A1");
+		hyperlink.setAddress("'" + link + "'" + "!A1");
 		hyperlink.setLabel(link + "!A1");
 		
 		cell.setHyperlink(hyperlink);
