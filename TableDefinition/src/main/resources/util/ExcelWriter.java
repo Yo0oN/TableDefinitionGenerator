@@ -22,6 +22,7 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFHyperlink;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import enums.TableColumnName;
 import tableDefinition.dao.TableDefinition;
 
 public class ExcelWriter {
